@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api/proxy/math")
 public class MathProxyService {
     
-    String ACTIVE_SERVER = System.getenv("MAIN_SERVER");
-    String PASSIVE_SERVER = System.getenv("PASSIVE_SERVER");
+    private String ACTIVE_SERVER = System.getenv("MAIN_SERVER");
+    private String PASSIVE_SERVER = System.getenv("PASSIVE_SERVER");
 
-    String active_server = ACTIVE_SERVER;
+    private String active_server = ACTIVE_SERVER;
 
     private void switchServer(){
         if (active_server.equals(ACTIVE_SERVER)){
@@ -49,7 +49,7 @@ public class MathProxyService {
             }
             in.close();
             
-            return inputLine;
+            return inputLine.toString();
         } catch (Exception e) {
             return null;
         }
