@@ -51,6 +51,7 @@ public class MathProxyService {
             
             return response.toString();
         } catch (Exception e) {
+            e.getStackTrace();
             return null;
         }
     }
