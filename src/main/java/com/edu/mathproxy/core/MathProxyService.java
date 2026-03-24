@@ -51,7 +51,7 @@ public class MathProxyService {
             
             return response.toString();
         } catch (Exception e) {
-            e.getStackTrace();
+            e.printStackTrace();
             return null;
         }
     }
@@ -62,8 +62,11 @@ public class MathProxyService {
 
         
         String path = "/api/math/pellseq?value=" + value;
+        System.out.println("ACTIVE_SERVER env: " + ACTIVE_SERVER);
+        System.out.println("PASSIVE_SERVER env: " + PASSIVE_SERVER);
+        System.out.println("Calling: " + active_server + path);
         String result = callServer(active_server + path);
-        System.out.println(result);
+        System.out.println("Result: " + result);
 
         if (result == null){
             switchServer();
