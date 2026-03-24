@@ -52,8 +52,8 @@
             fetch(base_url + num)
             .then(response => response.json())
             .then(data =>{
-                    mathResult = JSON.parse(data.result);
-                    document.getElementById("sumResult").innerHTML = "Resultado: " + mathResult.result + " (servidor: " + data.server + ")";
+                    var mathResult = JSON.parse(data.result);
+                    document.getElementById("seqResult").innerHTML = "Resultado: " + mathResult.output + " (servidor: " + data.server + ")";
                 }
             )
         }
