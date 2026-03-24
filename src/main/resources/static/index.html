@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Service</title>
+    
+</head>
+
+<body>
+
+    <h1>Pell Sequence</h1>
+    <p>Calcular la secuencia de Pell hasta un índice dado: pellseq(n) retorna un JSON con los términos desde
+
+        P(0) hasta P(n). (Recibe solo enteros no negativos).
+
+        Definición
+        
+        P(0) = 0
+        P(1) = 1
+        P(n) = 2P(n-1) + P(n-2)
+    </p>
+
+    <p>
+        <b>Ejemplo de llamado (EC2)</b>
+        https://amazonxxx.x.xxx.x.xxx:{port}/pellseq?value=13
+    </p>
+
+    <p>
+        <b>Salida (JSON)</b>
+
+        {
+        "operation": "Secuencia de Pell",
+        "input": 13,
+        "output": "0, 1, 2, 5, 12, 29, 70, 169, 408, 985, 2378, 5741, 13860, 33461"
+        }
+
+
+    </p>
+
+    <h2>Calcule la secuncia</h2>
+    <label for="">Número</label>
+    <input type="number" value="" id="num">
+    <button onclick="calcSum()">Calcular</button>
+    <div id="seqResult"></div>
+    <script>
+        base_url = "/api/proxy/math/pellSeq?value="
+        function calcSum(){
+            var num = document.getElementById("num").value;
+
+            fetch(base_url + num)
+            .then(response => response.json())
+            .then(data =>{
+                    mathResult = JSON.parse(data.result);
+                    document.getElementById("sumResult").innerHTML = "Resultado: " + mathResult.result + " (servidor: " + data.server + ")";
+                }
+            )
+        }
+    </script>
+
+</body>
+
+</html>
