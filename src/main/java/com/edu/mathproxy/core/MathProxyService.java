@@ -49,7 +49,7 @@ public class MathProxyService {
             }
             in.close();
             
-            return inputLine.toString();
+            return response.toString();
         } catch (Exception e) {
             return null;
         }
